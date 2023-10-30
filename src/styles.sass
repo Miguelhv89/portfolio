@@ -1,5 +1,5 @@
 // screen size
-$screen-large: 1200px
+$screen-large: 130px
 $screen-medium: 100%
 $screen-small: 250px
 
@@ -19,8 +19,26 @@ $text-size-nav: 1.4em
     padding: 0
 
 body
+    background: black    
+
+body:before
+    content: ""
     background: black
-    background-image: url("./assets/image/background-code.jpg")
-    background-position: center
+    // background-position: center
     background-repeat: no-repeat
     background-size: cover
+    position: absolute
+    top: 0px
+    right: 0px
+    bottom: 0px
+    left: 0px
+    z-index: -1
+
+@media screen and (max-width: 600px)
+    body:before
+        background-image: url("./assets/image/background-coder-sm.jpg")        
+
+@media screen and (min-width: 600px)
+    body:before
+        background-image: url("./assets/image/background-coder-large.jpg")        
+        opacity: 0.3
