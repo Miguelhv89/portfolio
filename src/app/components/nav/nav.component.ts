@@ -11,4 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./nav.component.sass']
 })
 export class NavComponent {
+  mobile:boolean = window.innerWidth <= 600;
 }
