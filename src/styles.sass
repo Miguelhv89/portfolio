@@ -6,9 +6,14 @@ $screen-small: 250px
 // text color
 $text-color-nav: #dbdbdb
 $text-color-nav-main: #ffffff
+$text-color-nav-sm-main: #ffffff
+
+// menu
+$background-color-nav-sm-burger: #000
 
 // text size
 $text-size-nav: 1.4em
+$text-size-sm-nav: 2em
 
 @font-face
     font-family: Concert
@@ -20,7 +25,16 @@ $text-size-nav: 1.4em
 
 body
     background: black
-    background-image: url("./assets/image/background-code.jpg")
+
+body:before
+    content: ''
+    background-image: url("./assets/image/background-sm.jpg")
     background-position: center
     background-repeat: no-repeat
     background-size: cover
+    opacity: 0.1
+    position: absolute
+    left: 0
+    top: 0
+    width: 100vw
+    height: 100vh

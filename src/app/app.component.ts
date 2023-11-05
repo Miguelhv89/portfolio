@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { NavComponent } from './components/nav/nav.component';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'portfolio';
-  constructor(){    
+  constructor(private titleService:Title){
+    this.titleService.setTitle('<dev />Miguel HV');
   }
 }

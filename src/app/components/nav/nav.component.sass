@@ -7,78 +7,84 @@ nav
     color: $text-color-nav-main
     align-items: center
     justify-content: space-between
-    // background-color: rgba(255, 255, 255, 0.1) 
     border-radius: 0 0 50px 50px
 
 .logo
     margin-left: 30px
-    font-size: $text-size-nav
+    font-size: $text-size-nav + .5
     font-family: Concert
-
-ul
-    list-style: none    
-    margin-right: 30px
-
-ul li
-    padding: 0 20px
-    display: inline-block
+    
+.logo code    
+    font-size: $text-size-nav
+    color: darkgreen        
 
 ul li a
     color: $text-color-nav
     font-family: Concert
-    letter-spacing: 0.1em
-    font-size: $text-size-nav
     text-decoration: none
-    position: relative
 
-ul li a:before,
-ul li a:after
-    position: absolute
-    -webkit-transition: all 0.35s ease
-    transition: all 0.35s ease
+@media screen and (min-width: 600px)
+    ul
+        list-style: none    
+        margin-right: 30px
 
-ul li a:before
-    content: ""
-    display: block
-    background-color: #2980b9
-    height: 3px
-    width: 0%
-    bottom: 0
+    ul li
+        padding: 0 20px
+        display: inline-block
 
-ul li a::after
-    content: attr(data-hover)
-    position: absolute
-    white-space: nowrap
-    color: $text-color-nav-main
-    overflow: hidden
-    max-width: 0%
-    left: 0
-    top: 0
+    ul li a
+        letter-spacing: 0.1em
+        font-size: $text-size-nav
+        position: relative
 
-ul li a:hover:before,
-ul li a:hover:after
-    width: 100%
-    max-width: 100%
+    ul li a:before,
+    ul li a:after
+        position: absolute
+        -webkit-transition: all 0.35s ease
+        transition: all 0.35s ease    
+
+    ul li a:before
+        content: ""
+        display: block
+        background-color: #2980b9    
+        height: 3px
+        width: 0%
+        bottom: -10px
+
+    ul li a::after
+        content: attr(data-hover)
+        position: absolute
+        white-space: nowrap
+        color: $text-color-nav-main
+        overflow: hidden
+        max-width: 0%
+        left: 0
+        top: 0
+
+    ul li a:hover:before,
+    ul li a:hover:after
+        width: 100%
+        max-width: 100%
 
 @media screen and (max-width: 600px)
     label .menu
         position: absolute
-        right: -100px
-        top: -100px
+        right: 0
+        top: 0
         z-index: 100
-        width: 200px
-        height: 200px
-        background: #FFF
-        border-radius: 50% 50% 50% 50%
+        width: 100px
+        height: 100px
+        background: $background-color-nav-sm-burger
+        border-radius: 0 0 0 100%
         -webkit-transition: .5s ease-in-out
         transition: .5s ease-in-out
-        box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF
-        cursor: pointer
+        box-shadow: 0 0 0 0 $background-color-nav-sm-burger, 0 0 0 0 $background-color-nav-sm-burger
+        cursor: pointer        
 
     label .hamburger
         position: absolute
-        top: 135px
-        left: 50px
+        top: 35px
+        right: 20px
         width: 30px
         height: 2px
         background: #69D2e7
@@ -108,7 +114,8 @@ ul li a:hover:after
         display: none
 
     label input:checked + .menu
-        box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF
+        width: 100vw
+        height: 100vh
         border-radius: 0
 
     label input:checked + .menu .hamburger
@@ -125,10 +132,7 @@ ul li a:hover:after
         transform: rotate(90deg)
         top: 0
 
-    label input:checked + .menu + ul
-        opacity: 1
-
-    label ul
+    ul
         z-index: 200
         position: absolute
         top: 50%
@@ -136,11 +140,26 @@ ul li a:hover:after
         -webkit-transform: translate(-50%, -50%)
         transform: translate(-50%, -50%)
         opacity: 0
-        -webkit-transition: .25s 0s ease-in-out
-        transition: .25s 0s ease-in-ou
 
+    label input:checked + .menu + ul
+        opacity: 1
+        animation: ulvisible 1s steps(20, end)
+        -webkit-animation: ulvisible 1s steps(20, end)
+
+    label li        
+        list-style: none
+        padding: .5em
+        
     label a
         margin-bottom: 1em
         display: block
-        color: #f38630
-        text-decoration: none
+        color: $text-color-nav-sm-main
+        font-size: $text-size-sm-nav
+        
+    @keyframes ulvisible
+        from        
+            opacity: 0
+        to
+            opacity: 1
+        50%
+            opacity: 0
