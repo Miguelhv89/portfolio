@@ -1,0 +1,28 @@
+<div class="home-main">
+    <div class="home-container">
+        <div class="space-sm"></div>
+        <code class="comment">// {{ data.comment }}</code>
+        <div class="divName">
+            <code class="declaration">string </code>
+            <code class="nameVariable">{{ aboutme.name?.code }}</code>
+            <code> = </code>
+            <code class="variable">"{{ aboutme.name?.value }}"</code>
+            <code>;</code>
+        </div>
+        <ul>
+            <code class="declaration">string</code>
+            <code>[] </code>
+            <code class="nameVariable">{{ aboutme.rols?.code }}</code>
+            <code> = </code>
+            <code class="bracket">[</code>            
+            <li *ngFor="let item of aboutme.rols?.value;let i = index">
+                <code class="variable">"{{item}}"</code>
+                <code *ngIf="i < aboutme.rols?.value.length - 1">,</code>
+            </li>
+            <code class="bracket">]</code>
+            <code>;</code>
+        </ul>
+        <div class="space-sm"></div>
+    </div>
+    <div class="space"></div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "information": {
+        "navigation": [
+            "Home",
+            "Portfolio",
+            "Contact"
+        ],
+        "home": {
+            "comment": "Whoami",
+            "aboutme": {
+                "name": {
+                    "code": "name",
+                    "value": "Miguel Hinostroza Vera"
+                },
+                "rols": {
+                    "code": "rols",
+                    "value": [
+                        "Software Engineer",
+                        "Fullstack Developer",
+                        "Teach Leader"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 <section class="container">
-    <mhp-nav></mhp-nav>
+    <mhp-nav [data]="navigation"></mhp-nav>
     <section>
+        <app-home [data]="home"></app-home>
         <router-outlet></router-outlet>
     </section>
 </section>

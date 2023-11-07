@@ -14,8 +14,8 @@
 
 <ng-template #menu>
     <ul>
-        <li><a href="" data-hover="Inicio">Inicio</a></li>
-        <li><a href="" data-hover="Portafolio">Portafolio</a></li>
-        <li><a href="" data-hover="Contactame">Contactame</a></li>
+        <li *ngFor="let item of data">
+            <a href="" [attr.data-hover]="item">{{item}}</a>
+        </li>
     </ul>
 </ng-template>

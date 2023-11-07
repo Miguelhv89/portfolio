@@ -3,7 +3,7 @@
 nav
     display: flex
     width: 100%
-    height: 8vh
+    height: $height-size-nav
     color: $text-color-nav-main
     align-items: center
     justify-content: space-between
@@ -13,10 +13,9 @@ nav
     margin-left: 30px
     font-size: $text-size-nav + .5
     font-family: Concert
-    
-.logo code    
-    font-size: $text-size-nav
-    color: darkgreen        
+    code    
+        font-size: $text-size-nav
+        color: darkgreen        
 
 ul li a
     color: $text-color-nav
@@ -28,109 +27,125 @@ ul li a
         list-style: none    
         margin-right: 30px
 
-    ul li
-        padding: 0 20px
-        display: inline-block
+        li
+            padding: 0 20px
+            display: inline-block
 
-    ul li a
-        letter-spacing: 0.1em
-        font-size: $text-size-nav
-        position: relative
+            a
+                letter-spacing: 0.1em
+                font-size: $text-size-nav
+                position: relative
+                &:before,
+                &:after
+                    position: absolute
+                    -webkit-transition: all 0.35s ease
+                    transition: all 0.35s ease    
+                &:before
+                    content: ""
+                    display: block
+                    background-color: #2980b9    
+                    height: 3px
+                    width: 0%
+                    bottom: -10px
 
-    ul li a:before,
-    ul li a:after
-        position: absolute
-        -webkit-transition: all 0.35s ease
-        transition: all 0.35s ease    
-
-    ul li a:before
-        content: ""
-        display: block
-        background-color: #2980b9    
-        height: 3px
-        width: 0%
-        bottom: -10px
-
-    ul li a::after
-        content: attr(data-hover)
-        position: absolute
-        white-space: nowrap
-        color: $text-color-nav-main
-        overflow: hidden
-        max-width: 0%
-        left: 0
-        top: 0
-
-    ul li a:hover:before,
-    ul li a:hover:after
-        width: 100%
-        max-width: 100%
+                &::after
+                    content: attr(data-hover)
+                    position: absolute
+                    white-space: nowrap
+                    color: $text-color-nav-main
+                    overflow: hidden
+                    max-width: 0%
+                    left: 0
+                    top: 0
+                &:hover:before,
+                &:hover:after
+                    width: 100%
+                    max-width: 100%
 
 @media screen and (max-width: 600px)
-    label .menu
-        position: absolute
-        right: 0
-        top: 0
-        z-index: 100
-        width: 100px
-        height: 100px
-        background: $background-color-nav-sm-burger
-        border-radius: 0 0 0 100%
-        -webkit-transition: .5s ease-in-out
-        transition: .5s ease-in-out
-        box-shadow: 0 0 0 0 $background-color-nav-sm-burger, 0 0 0 0 $background-color-nav-sm-burger
-        cursor: pointer        
+    label
+        .menu
+            position: absolute
+            right: 0
+            top: 0
+            z-index: 100
+            width: 100px
+            height: 100px
+            background: $background-color-nav-sm-burger
+            border-radius: 0 0 0 100%
+            -webkit-transition: .5s ease-in-out
+            transition: .5s ease-in-out
+            box-shadow: 0 0 0 0 $background-color-nav-sm-burger, 0 0 0 0 $background-color-nav-sm-burger
+            cursor: pointer        
 
-    label .hamburger
-        position: absolute
-        top: 35px
-        right: 20px
-        width: 30px
-        height: 2px
-        background: #69D2e7
-        display: block
-        -webkit-transform-origin: center
-        transform-origin: center
-        -webkit-transition: .5s ease-in-out
-        transition: .5s ease-in-out
+        .hamburger
+            position: absolute
+            top: 35px
+            right: 20px
+            width: 30px
+            height: 2px
+            background: #69D2e7
+            display: block
+            -webkit-transform-origin: center
+            transform-origin: center
+            -webkit-transition: .5s ease-in-out
+            transition: .5s ease-in-out
 
-    label .hamburger:after, label .hamburger:before
-        -webkit-transition: .5s ease-in-out
-        transition: .5s ease-in-out
-        content: ""
-        position: absolute
-        display: block
-        width: 100%
-        height: 100%
-        background: #69d2e7
+        .hamburger:after,
+        .hamburger:before
+            -webkit-transition: .5s ease-in-out
+            transition: .5s ease-in-out
+            content: ""
+            position: absolute
+            display: block
+            width: 100%
+            height: 100%
+            background: #69d2e7
 
-    label .hamburger:before
-        top: -10px
+        .hamburger:before
+            top: -10px
 
-    label .hamburger:after
-        bottom: -10px
+        .hamburger:after
+            bottom: -10px
 
-    label input
-        display: none
+        input
+            display: none
 
-    label input:checked + .menu
-        width: 100vw
-        height: 100vh
-        border-radius: 0
+            &:checked + .menu
+                width: 100vw
+                height: 100vh
+                border-radius: 0
 
-    label input:checked + .menu .hamburger
-        -webkit-transform: rotate(45deg)
-        transform: rotate(45deg)
+            &:checked + .menu .hamburger
+                -webkit-transform: rotate(45deg)
+                transform: rotate(45deg)
 
-    label input:checked + .menu .hamburger:after
-        -webkit-transform: rotate(90deg)
-        transform: rotate(90deg)
-        bottom: 0
+            &:checked + .menu .hamburger:after
+                -webkit-transform: rotate(90deg)
+                transform: rotate(90deg)
+                bottom: 0
 
-    label input:checked + .menu .hamburger:before
-        -webkit-transform: rotate(90deg)
-        transform: rotate(90deg)
-        top: 0
+            &:checked + .menu .hamburger:before
+                -webkit-transform: rotate(90deg)
+                transform: rotate(90deg)
+                top: 0
+            &:checked + .menu + ul
+                opacity: 1
+                animation: ulvisible 1s steps(20, end)
+                -webkit-animation: ulvisible 1s steps(20, end)
+        li        
+            list-style: none
+            padding: .5em
+        
+        a
+            margin-bottom: 1em
+            display: block
+            color: $text-color-nav-sm-main
+            font-size: $text-size-sm-nav
+            &:before
+                content: '<'
+            &:after
+                content: '/>'
 
     ul
         z-index: 200
@@ -140,21 +155,6 @@ ul li a
         -webkit-transform: translate(-50%, -50%)
         transform: translate(-50%, -50%)
         opacity: 0
-
-    label input:checked + .menu + ul
-        opacity: 1
-        animation: ulvisible 1s steps(20, end)
-        -webkit-animation: ulvisible 1s steps(20, end)
-
-    label li        
-        list-style: none
-        padding: .5em
-        
-    label a
-        margin-bottom: 1em
-        display: block
-        color: $text-color-nav-sm-main
-        font-size: $text-size-sm-nav
         
     @keyframes ulvisible
         from        
