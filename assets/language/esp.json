@@ -1,0 +1,26 @@
+{
+    "information": {
+        "navigation": [
+            "Inicio",
+            "Portafolio",
+            "Contactame"
+        ],
+        "home": {
+            "comment": "Quien Soy",
+            "aboutme": {
+                "name": {
+                    "code": "nombre",
+                    "value": "Miguel Hinostroza Vera"
+                },
+                "rols": {
+                    "code": "cargos",
+                    "value": [
+                        "Software Engineer",
+                        "Desarrollador Fullstack",
+                        "Lider Técnico"
+                    ]
+                }
+            }
+        }
+    }
+}
