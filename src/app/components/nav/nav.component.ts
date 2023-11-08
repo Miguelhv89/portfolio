@@ -17,9 +17,11 @@ export class NavComponent {
   text:string = 'MiguelDev'
   textStart:string = '<'
   textEnd:string = '/>'
+  linkActive: string = '';
 
   ngOnInit(): void {
-    this.mobile = window.innerWidth <= 600;       
+    this.mobile = window.innerWidth <= 600;
+    this.linkActive = this.data[0];
   }
 
   @HostListener("window:resize", [])

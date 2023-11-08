@@ -22,6 +22,16 @@ ul li a
     font-family: Concert
     text-decoration: none
 
+.active
+    color: $text-color-nav-main !important
+    &:before
+        content: ""
+        display: block !important
+        background-color: #2980b9 !important
+        height: 3px !important
+        width: 100% !important
+        bottom: -10px !important
+
 @media screen and (min-width: 600px)
     ul
         list-style: none    

@@ -15,7 +15,7 @@
 <ng-template #menu>
     <ul>
         <li *ngFor="let item of data">
-            <a href="" [attr.data-hover]="item">{{item}}</a>
+            <a [href]="'#' + item" (click)="linkActive = item" [ngClass]="{'active': linkActive == item}" [attr.data-hover]="item">{{item}}</a>
         </li>
     </ul>
 </ng-template>
